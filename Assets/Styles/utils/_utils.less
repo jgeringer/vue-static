@@ -1,0 +1,92 @@
+﻿@import "../common/_variables.less";
+@import "../common/_mixins.less";
+
+.u-noCallout {
+    -webkit-touch-callout: none !important;
+}
+
+.u-noBorder {
+    border: none !important;
+}
+
+@media print {
+    .u-hidePrint {
+        display: none !important;
+    }
+    .u-printSizeFull {
+        width: 100% !important;
+        display: block !important; /* fixes bug IB-535, firefox not printing all pages */
+    }
+}
+
+.u-highlightBox {
+    padding: .5em 1em;
+}
+
+.u-highlight:hover, .u-highlightArrow {
+    background: #F6F6F6;
+    box-shadow: 0 0 0 1px #E4E4E4;
+    position: relative;
+    border-radius: .6em;
+
+    .Heading-text {
+        background: #F6F6F6 !important;
+    }
+}
+
+.u-borderTop {
+	border-top: 1px solid @colorGrey;
+}
+
+.u-borderBottom {
+	border-bottom: 1px solid @colorGrey;
+}
+
+.u-borderAllSides{
+    border: 1px solid @colorGrey;
+}
+
+.u-listStyleNone {
+	list-style: none;
+}
+
+@media @bpXSmall{
+    .u-xsm-listStyleVertical{list-style:none;padding-left:0;
+        > li{display:block;}
+    }
+    .u-xsm-listStyleHorizontal{list-style:none;padding-left:0;white-space:nowrap;
+        > li{display:inline-block;white-space:normal;}
+    }
+}
+@media @bpSmall{
+    .u-sm-listStyleVertical{list-style:none;padding-left:0;
+        > li{display:block;}
+    }
+    .u-sm-listStyleHorizontal{list-style:none;padding-left:0;white-space:nowrap;
+        > li{display:inline-block;white-space:normal;}
+    }
+}
+@media @bpMedium{
+    .u-md-listStyleVertical{list-style:none;padding-left:0;
+        > li{display:block;}
+    }
+    .u-md-listStyleHorizontal{list-style:none;padding-left:0;white-space:nowrap;
+        > li{display:inline-block;white-space:normal;}
+    }
+}
+@media @bpLarge{
+    .u-lg-listStyleVertical{list-style:none;padding-left:0;
+        > li{display:block;}
+    }
+    .u-lg-listStyleHorizontal{list-style:none;padding-left:0;white-space:nowrap;
+        > li{display:inline-block;white-space:normal;}
+    }
+}
+@media @bpXLarge{
+    .u-xlg-listStyleVertical{list-style:none;padding-left:0;
+        > li{display:block;}
+    }
+    .u-xlg-listStyleHorizontal{list-style:none;padding-left:0;white-space:nowrap;
+        > li{display:inline-block;white-space:normal;}
+    }
+}

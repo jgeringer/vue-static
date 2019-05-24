@@ -1,0 +1,262 @@
+@import "./_variables.less";
+@import "./_mixins.less";
+
+/*
+---
+name: Grid
+category: Grid
+---
+
+The Grid-cell should be combined with a utils-size class for the specific breakpoint you want to target. 
+
+DO NOT apply dimension or offset utilities to the `Grid` element. All cell widths and offsets should be applied to child grid cells.
+
+```grid.html
+<div class="Grid Grid--withGutter">
+  <div class="Grid-cell u-xsm-size1of2 u-bgColor--grey">1of2</div>
+  <div class="Grid-cell u-xsm-size1of2 u-bgColor--grey">1of2</div>
+  <div class="Grid-cell u-xsm-size1of3 u-bgColor--grey">1of3</div>
+  <div class="Grid-cell u-xsm-size1of3 u-bgColor--grey">1of3</div>    
+  <div class="Grid-cell u-xsm-size1of3 u-bgColor--grey">1of3</div>
+  <div class="Grid-cell u-xsm-size1of4 u-bgColor--grey">1of4</div>
+  <div class="Grid-cell u-xsm-size1of4 u-bgColor--grey">1of4</div>
+  <div class="Grid-cell u-xsm-size1of4 u-bgColor--grey">1of4</div>
+  <div class="Grid-cell u-xsm-size1of4 u-bgColor--grey">1of4</div>
+</div>
+```
+*/
+
+ .Grid {
+  display: block; /* 1 */
+  font-size: 0; /* 2 */
+  margin: 0; /* 1 */
+  padding: 0; /* 1 */
+  text-align: left; /* 3 */
+}
+
+/*
+---
+name: Grid gutters
+category: Grid
+---
+
+Modifiers:
+- Grid--withGutter
+- Grid--withOuterGutter
+- Grid--withWideGutter
+- Grid--withExtraWideGutter
+
+```gridgutters.html
+<div class="Grid Grid--withGutter">
+  <div class="Grid-cell u-bgColor--grey">Grid--withGutter</div>
+</div>
+
+<div class="Grid Grid--withOuterGutter">
+  <div class="Grid-cell u-bgColor--grey">Grid--withOuterGutter</div>
+</div>
+
+<div class="Grid Grid--withWideGutter">
+  <div class="Grid-cell u-bgColor--grey">Grid--withWideGutter</div>
+</div>
+
+<div class="Grid Grid--withExtraWideGutter">
+  <div class="Grid-cell u-bgColor--grey">Grid--withExtraWideGutter</div>
+</div>
+```
+
+```gridgutters.notes
+This can trigger a horizontal scrollbar if the component is as wide as the viewport.
+Use padding on a container, or `overflow-x:hidden` to protect against it.
+```
+*/
+
+.Grid--withGutter {
+  margin-left: (-0.5px * @gutterSize);
+  margin-right: (-0.5px * @gutterSize);
+}
+
+.Grid--withOuterGutter {
+  margin-left: (0.5px * @gutterSize);
+  margin-right: (0.5px * @gutterSize);
+}
+
+.Grid--withGutter > .Grid-cell {
+  padding-left: (0.5px * @gutterSize);
+  padding-right: (0.5px * @gutterSize);
+}
+
+/* Extra wide gutters */
+
+.Grid--withWideGutter {
+  margin-left: (-1px * @gutterSize);
+  margin-right: (-1px * @gutterSize);
+
+  &.Grid--withOuterGutter {
+      margin-left: (1px * @gutterSize);
+      margin-right: (1px * @gutterSize);
+  }
+}
+
+.Grid--withWideGutter > .Grid-cell {
+  padding-left: (1px * @gutterSize);
+  padding-right: (1px * @gutterSize);
+}
+
+@media @bpMedium {
+  .Grid--withExtraWideGutter {
+      margin-left: (-2px * @gutterSize);
+      margin-right: (-2px * @gutterSize);
+
+      &.Grid--withOuterGutter {
+          margin-left: (2px * @gutterSize);
+          margin-right: (2px * @gutterSize);
+      }
+  }
+
+  .Grid--withExtraWideGutter > .Grid-cell {
+      padding-left: (2px * @gutterSize);
+      padding-right: (2px * @gutterSize);
+  }
+}
+
+/*
+---
+name: Grid alignment
+category: Grid
+---
+
+Modifiers:
+- Grid--alignCenter: center align all grid cells
+- Grid--alignRight: right align all grid cells
+- Grid--alignMiddle: middle-align grid cells
+- Grid--alignBottom: bottom-align grid cells
+
+```gridalignment.html
+<div class="Grid Grid--alignCenter">
+  <div class="Grid-cell u-xsm-size1of2 u-bgColor--grey">Grid--alignCenter</div>
+</div>
+
+<div class="Grid Grid--alignRight">
+  <div class="Grid-cell u-xsm-size1of2 u-bgColor--grey">Grid--alignRight</div>
+</div>
+
+<div class="Grid Grid--alignMiddle">
+  <div class="Grid-cell u-xsm-size1of2 u-bgColor--grey">Grid--alignMiddle</div>
+</div>
+
+<div class="Grid Grid--alignBottom">
+  <div class="Grid-cell u-xsm-size1of2 u-bgColor--grey">Grid--alignBottom</div>
+</div>
+```
+
+```gridalignment.notes
+- All content must be contained within child `Grid-cell` elements.
+1. Account for browser defaults of elements that might be the root node of the component.
+2. Remove inter-cell whitespace that appears between `inline-block` child elements.
+3. Ensure consistent default alignment.
+```
+*/
+
+.Grid--alignCenter {
+  text-align: center;
+}
+
+.Grid--alignRight {
+  text-align: right;
+}
+
+.Grid--alignMiddle > .Grid-cell {
+  vertical-align: middle;
+}
+
+.Grid--alignBottom > .Grid-cell {
+  vertical-align: bottom;
+}
+
+
+
+.Grid--equalHeight {
+  display: flex;
+  flex-wrap: wrap;
+  > .Grid-cell {
+    display: flex;
+  }
+}
+
+.Grid--fit {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Grid--fit > .Grid-cell {
+  flex: 1 1 0%;
+}
+
+.Grid--column{
+  display: flex;
+  flex-direction: column;
+}
+
+.FlexGrid{
+  display: flex;
+}
+
+.FlexGrid--alignCenter{
+  align-items: center;
+}
+
+/*
+---
+name: Grid cell
+category: Grid
+---
+The Grid-cell should be combined with a utils-size class for the specific breakpoint you want to target. 
+
+DO NOT apply dimension or offset utilities to the `Grid` element. All cell widths and offsets should be applied to child grid cells.
+
+Modifiers:
+- Grid-cell--center: horizontally center one unit
+- Grid-cell--text-center: horizontally center text of one unit
+
+```gridcell.html
+<div class="Grid Grid--withGutter">
+  <div class="Grid-cell Grid-cell--center u-xsm-size1of2 u-bgColor--grey">Center Cell</div>
+  <div class="Grid-cell Grid-cell--text-center u-xsm-size1of2 u-bgColor--grey">Center Cell Text</div>
+</div>
+```
+
+```gridcell.notes
+No explicit width by default. Rely on combining `Grid-cell` with a dimension
+utility or a component class that extends 'grid'.
+
+1. Fundamentals of the non-float grid layout.
+2. Reset font size change made in `Grid`.
+3. Keeps content correctly aligned with the grid direction.
+4. Controls vertical positioning of units.
+5. Make cells full-width by default.
+```
+*/
+
+.Grid-cell {
+  box-sizing: border-box;
+  display: inline-block; /* 1 */
+  font-size: 16px; /* 2 */
+  font-size: 1rem; /* 2 */
+  margin-right: 0;
+  margin-left: 0;
+  padding-right: 0;
+  padding-left: 0;
+  text-align: left; /* 3 */
+  vertical-align: top; /* 4 */
+  width: 100%; /* 5 */
+}
+
+.Grid-cell--center {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.Grid-cell--text-center {
+  text-align: center;
+}

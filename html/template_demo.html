@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Template Demo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Assets/bundled/main.bundle.css">
+    <link rel="stylesheet" href="demo.css">
+    
+    <script>
+        window.navigation = [
+            {
+                path: '/',
+                name: 'Start Page',
+                component: 'Start',
+                meta: {
+                    title: 'Home'
+                }
+            }
+            ,
+            {
+                path: '/second',
+                name: 'Second Page!',
+                component: 'Second',
+                meta: {
+                    title: 'Second Page'
+                }
+            }
+        ]
+    </script>
+</head>
+
+<body>
+    <div class="Grid" id="App">
+
+        <div class="Grid-cell">
+            <Navigation></Navigation>        
+            <router-view></router-view>
+        </div>
+    </div>
+    
+    <script src="../Assets/bundled/main.bundle.js"></script>
+
+</body>
+</html>

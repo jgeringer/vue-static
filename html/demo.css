@@ -1,0 +1,73 @@
+/*
+CSS for the demo template
+*/
+
+.Button, button{
+    background-color: #0066FF;
+    color: #fff;
+    border-radius: 3px;
+}
+
+.logo{
+    width: 100px;
+}
+
+a{
+    color: #0066FF;
+}
+
+.SiteHeader a,
+.SiteFooter a {
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.SiteHeader a:hover,
+.SiteFooter a:hover{
+    color: #d85dff;
+}
+
+.SiteFooter a {
+    font-size: 1rem;
+}
+
+.SiteHeader,
+.SiteFooter{
+    background: linear-gradient(87deg,#6a11cb 0,#2575fc 100%);
+}
+
+.SiteHeader p,
+.SiteFooter p{
+    color: #fff;
+}
+
+.SiteFooter .SocialLinks a{
+    color: #2575fc;
+}
+.SiteFooter .SocialLinks a:hover{
+    color: #d85dff;
+}
+
+/*For svg logo*/
+.cls-1 {
+    fill: #fff;
+}
+
+table td{
+    border-bottom: 1px solid #eee;
+    color: #666;
+    font-size: .8em;
+    text-align: left;
+}
+
+.Slider-item{
+    background: #2E435A;
+}
+
+.List--horizontal.List--bordered>.List-item{
+    border-right: #6f3cec 1px solid;
+}
+
+fieldset{
+    margin-bottom: 1rem;
+}

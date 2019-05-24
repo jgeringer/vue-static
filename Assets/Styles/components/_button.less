@@ -1,0 +1,100 @@
+@import "../common/_variables.less";
+@import "../common/_mixins.less";
+
+/*
+---
+name: Button
+category: Components
+---
+
+Buttons can be used with `<a>`, `<button>`, and `<input>` elements.
+
+The button classes are best applied to links and buttons. These components can be used in forms, as calls to action, or as part of the general UI of the site/app.
+
+Types of buttons:
+- Default: Standard button
+- Disabled: Disabled button style
+
+```button.html
+<button class="Button">Default Button</button>
+<button class="Button is-disabled">Disabled Button</button>
+<a href="#" class="Button">Anchor Button</a>
+```
+
+```button.notes
+1. Normalize `box-sizing` across all elements that this component could be applied to.
+2. Inherit text color from ancestor.
+3. Inherit font styles from ancestor.
+4. Prevent button text from being selectable.
+```
+*/
+
+@Button-border-color: @colorGrey;
+@Button-border-width: 1px;
+@Button-color: inherit;
+@Button-disabled-opacity: 0.6;
+@Button-font: inherit;
+@Button-padding: 0.4em 0.75em;
+
+.Button, button {
+  background: lighten(@colorGrey, 50%);
+  border-color: @Button-border-color;
+  border-radius: 0;
+  border-style: solid;
+  border-width: @Button-border-width;
+  box-sizing: border-box; /* 1 */
+  color: @Button-color; /* 2 */
+  display: inline-block;
+  font: @Button-font; /* 3 */
+  margin: 0;
+  padding: @Button-padding;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none; /* 4 */
+}
+
+/**
+ * Remove excess padding and border in Firefox 4+
+ */
+
+.Button::-moz-focus-inner, button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Work around a Firefox/IE bug where the transparent `button` background
+ * results in a loss of the default `button` focus styles.
+ */
+
+.Button:focus, button:focus {
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
+/**
+ * UI states
+ */
+
+.Button:hover,
+.Button:focus,
+.Button:active,
+.Button.is-active,
+button:hover,
+button:focus,
+button:active,
+button.is-active {
+  text-decoration: none;
+  color: @colorActiveText;
+  background: @colorActiveBackground;
+  border-color: @colorActiveBackground;
+}
+
+.Button:disabled,
+.Button.is-disabled,
+button:disabled,
+button.is-disabled {
+  cursor: default;
+  opacity: @Button-disabled-opacity;
+}

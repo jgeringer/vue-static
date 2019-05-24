@@ -1,0 +1,79 @@
+{
+  "name": "uspa-test",
+  "description": "Making Waves FE build",
+  "version": "1.0.0",
+  "author": "Making Waves",
+  "license": "All Rights Reserved",
+  "private": true,
+  "scripts": {
+    "postinstall": "npm run dev",
+    "dev": "cross-env NODE_ENV=development webpack",
+    "dev:watch": "cross-env NODE_ENV=development webpack -w",
+    "dev:stats": "cross-env NODE_ENV=development webpack && source-map-explorer ./Assets/Bundled/main.bundle.js",
+    "lint": "eslint --ext .js,.vue assets",
+    "lint:fix": "npm run lint -- --fix",
+    "build": "cross-env NODE_ENV=production webpack",
+    "build:stats": "cross-env NODE_ENV=production webpack --devtool source-map && source-map-explorer ./Assets/Bundled/main.bundle.js"
+  },
+  "dependencies": {
+    "vue": "^2.5.11",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 10"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-syntax-jsx": "^7.0.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.1.0",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-stage-3": "^7.0.0",
+    "autoprefixer": "^9.0.1",
+    "babel-eslint": "^10.0.1",
+    "babel-helper-vue-jsx-merge-props": "^2.0.3",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-transform-vue-jsx": "^4.0.1",
+    "clean-webpack-plugin": "^0.1.19",
+    "cross-env": "^5.0.5",
+    "css-loader": "^1.0.0",
+    "css-mqpacker": "^7.0.0",
+    "cssnano": "^4.0.0",
+    "eslint": "^5.2.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-html": "^4.0.5",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "import-glob-loader": "^1.1.0",
+    "less": "^3.6.0",
+    "less-loader": "^4.1.0",
+    "mini-css-extract-plugin": "^0.4.1",
+    "postcss-color-rgba-fallback": "^3.0.0",
+    "postcss-less": "^3.0.2",
+    "postcss-loader": "^3.0.0",
+    "postcss-pxtorem": "^4.0.1",
+    "source-map-explorer": "^1.5.0",
+    "svg-sprite-loader": "^4.1.2",
+    "svgo-loader": "^2.1.0",
+    "uglifyjs-webpack-plugin": "^2.0.1",
+    "vue-loader": "^15.2.6",
+    "vue-template-compiler": "^2.4.4",
+    "webpack": "^4.16.3",
+    "webpack-build-notifier": "^0.1.28",
+    "webpack-cli": "^3.1.0",
+    "whatwg-fetch": "^3.0.0"
+  },
+  "-vs-binding": {
+    "ProjectOpened": [
+      "dev:watch"
+    ]
+  }
+}

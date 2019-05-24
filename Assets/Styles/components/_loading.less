@@ -1,0 +1,92 @@
+@import "../common/_variables.less";
+@import "../common/_mixins.less";
+
+/*
+---
+name: Loading
+category: Components
+---
+
+Display a loading animation to let user know that something is processing in the background.
+
+```loading.html
+<div>
+    <span class="Loading Loading--spinning">
+        <span class="Loading-icon"></span>
+        <span class="Loading-text">Your profile is loading...</span>
+    </span>
+</div>
+```
+*/
+
+@Loading-iconColor: @colorBlue;
+@Loading-textColor: #aaa;
+@Loading-size: 2em;
+
+.Loading {
+    display: inline-block;
+    padding: @spaceMedium;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.Loading--full {
+    width: 100%;
+}
+
+.Loading--fill {
+    position: absolute;
+    background: #fff; // color used to mask what's behind the component
+    padding: 0;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Loading--compact {
+    padding: 0;
+}
+
+.Loading--xsmall {
+    font-size: .5em;
+}
+
+.Loading--small {
+    font-size: 12px;
+}
+
+.Loading--large {
+    font-size: 20px;
+}
+
+.Loading-text {
+    display: block;
+    font-size: 14px;
+    margin-top: @spaceSmall;
+    color: @Loading-textColor;
+}
+
+.Loading--spinning {
+    .Loading-icon {
+        display: inline-block;
+        height: @Loading-size;
+        width: @Loading-size;
+        border: 4/16em solid @Loading-iconColor;
+        border-right-color: transparent;
+        border-radius: 50%;
+        animation: rotate 0.9s infinite linear;
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
