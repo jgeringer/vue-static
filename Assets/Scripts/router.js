@@ -39,6 +39,7 @@ for (var prop in navigation) {
 var routes = navigation // map
 
 export default new Router({
+    mode: 'history',
     routes: routes
 })
 
